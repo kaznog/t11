@@ -82,13 +82,13 @@ void HelloWorld::initPhysics()
     
     {
         _planet = Sprite::create("planet.png");
-        _planet->setPosition(Vec2(_winSize.width * 0.8f, _winSize.height/2));
+        _planet->setPosition(Vec2(_winSize.width * 0.5f, _winSize.height/2));
         this->addChild(_planet);
         
         b2BodyDef planetDef;
         planetDef.type = b2_staticBody;
         planetDef.userData = _planet;
-        planetDef.position.Set((_winSize.width * 0.8f)/PTM_RATIO, (_winSize.height/2)/PTM_RATIO);
+        planetDef.position.Set((_winSize.width * 0.5f)/PTM_RATIO, (_winSize.height/2)/PTM_RATIO);
         
         _bodyPlanet = _world->CreateBody(&planetDef);
         b2CircleShape circle;
@@ -103,13 +103,13 @@ void HelloWorld::initPhysics()
     {
         _ball = b2Sprite::create("ball.png");
         _ball->setScale(0.2f);
-        _ball->setPosition(Vec2(_winSize.width * 0.2f, _winSize.height/2));
+        _ball->setPosition(Vec2(_winSize.width * 0.5f - 200, _winSize.height/2));
         this->addChild(_ball);
         
         b2BodyDef ballDef;
         ballDef.type = b2_dynamicBody;
         ballDef.userData = _ball;
-        ballDef.position.Set((_winSize.width * 0.2f)/PTM_RATIO, (_winSize.height/2)/PTM_RATIO);
+        ballDef.position.Set((_winSize.width * 0.5f - 200)/PTM_RATIO, (_winSize.height/2)/PTM_RATIO);
         
         _bodyBall = _world->CreateBody(&ballDef);
         b2CircleShape ballShape;
